@@ -1,5 +1,8 @@
 Admin::Application.routes.draw do
 
+  # Don't allow users to access the store on this server.
+  match '/' => proc { [404, {}, ['']] }  
+
   # This line mounts Spree's routes at the root of your application.
   # This means, any requests to URLs such as /products, will go to Spree::ProductsController.
   # If you would like to change where this engine is mounted, simply change the :at option to something different.

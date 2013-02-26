@@ -1,7 +1,7 @@
 Store::Application.routes.draw do
 
-  # Don't allow the admin page to be accessed from the store server.
-  match '/admin' => redirect('http://0.0.0.0:3001')
+  # Don't allow admin routes on this server.
+  match '/admin' => proc { [404, {}, ['']] }
 
   # This line mounts Spree's routes at the root of your application.
   # This means, any requests to URLs such as /products, will go to Spree::ProductsController.
